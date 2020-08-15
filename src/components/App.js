@@ -5,6 +5,7 @@ import 'react-h5-audio-player/lib/styles.css';
 import './App.css';
 
 import logo from '../images/LOGO.png'
+import test from '../images/tvshows/selfdirector.jpg'
 import unsolved from '../images/unknow_pic.jpg'
 import sounds from '../utils/sounds';
 
@@ -159,8 +160,8 @@ const App = () => {
                                 <div className='pic_player2' style={{flex: 1,}}>
                                     <img alt='test_image'
                                          style={{borderRadius: 10}}
-                                         src='https://media.gettyimages.com/photos/woman-lifts-her-arms-in-victory-mount-everest-national-park-picture-id507910624?s=612x612'
-                                         width={200} height={155} />
+                                         src={test}
+                                    />
                                 </div>
                                 <div style={{flex: 4, display: 'flex', color: '#fff',}}>
                                     <div style={{flex: 1, display: 'flex', flexDirection: 'column',}}>
