@@ -1,53 +1,206 @@
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.container{
+    width:75%;
 }
-
-.App-header {
-    background: radial-gradient(#530721, #000);
-    min-height: 100vh;
-    color: #f01d4b;
-}
-
-.line {
-    width: 50%;
-    height: 3px;
-    background: linear-gradient(90deg, #9e1636, #1f0910);
-}
-
 .items {
     margin-right: 25px;
 }
-
-@media screen and (max-width: 768px) {
+.items_left {
+    flex: 1;
+}
+.container_items_left{
+    border-radius: 10px;
+    margin-right:20px;
+}
+.item {
+    border: 1px solid #fe1f4f;
+    color:#fff;
+    font-size:14px;
+    border-radius: 10px;
+    background-color: #230f1b;
+    margin-bottom:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:10px;
+    user-select: none;
+}
+.item:hover{
+    background-color: #501622;
+    cursor: pointer;
+}
+.button_disabled{
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #fe1f4f;
+    border-radius: 10px;
+    background-color: #230f1b;
+    color: #fe1f4f;
+    user-select: none;
+}
+.button{
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #222A12;
+    color: #6CFD1F;
+    cursor: pointer;
+    user-select: none;
+}
+.button:hover{
+    box-shadow: 2px 2px 5px #6CFD1F;
+}
+.button:active{
+    box-shadow: 2px 4px 5px #6CFD1F;
+    bottom:-4px;
+}
+.row-items, .row-items2 {
+    flex-direction: row;
+}
+.pic_player,.pic_player2 {
+    padding: 20px;
+}
+.coded_word,.coded_word2  {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.word_info {
+    font-size: 14px;
+}
+.player_container,.player_container2 {
+    flex: 3;
+    margin-right:20px;
+}
+@media screen and (max-width: 1320px) {
+    .container{
+        width:85%;
+    }
     .items {
         margin-right: 0;
         margin-bottom: 25px;
     }
-}
-
-.row-items {
-    flex-direction: row;
-}
-
-@media screen and (max-width: 768px) {
-    .row-items {
+    .row-items2 {
         flex-direction: column;
     }
+    .pic_player2 {
+        align-self: center;
+        padding-left:0;
+        padding-right:0;
+        padding-bottom: 20px;
+    }
+    .coded_word2 {
+        justify-content: center;
+    }
+    .player_container2 {
+        margin-left:20px;
+    }
 }
-
-.pic_player {
-    justify-content: center;
-    padding-left:10px;
-    padding-right:20px;
-}
-
 @media screen and (max-width: 768px) {
+    .container{
+        width:90%;
+    }
+    .row-items,.row-items2  {
+        flex-direction: column;
+    }
     .pic_player {
         align-self: center;
         padding-left:0;
         padding-right:0;
         padding-bottom: 20px;
     }
+    .coded_word {
+        justify-content: center;
+    }
+    .player_container,.player_container2 {
+        margin-left:20px;
+    }
+    .rhap_progress-indicator {
+        width: 15px;
+        height: 15px;
+        top: -5px;
+    }
+    .container_items_left{
+        margin-right:0;
+    }
+}
+@media screen and (max-width: 474px) {
+    .player_container,.player_container2 {
+    margin: 0 10px;
+    }
+}
+@media screen and (max-width: 424px) {
+    .container{
+        width:90%;
+    }
+    .player_container,.player_container2 {
+        margin: 0 5px;
+    }
+    .rhap_volume-indicator {
+        width: 9px;
+        height: 9px;
+        top: -3px;
+    }
+    .rhap_progress-indicator {
+        width: 12px;
+        height: 12px;
+        top: -4px;
+    }
+}
+@media screen and (max-width: 387px) {
+    .container{
+        width:90%;
+    }
+    .player_container,.player_container2  {
+        margin: 0;
+    }
+}
+
+
+
+
+
+.rhap_container {
+    padding: 10px 0;
+}
+
+.rhap_additional-controls {
+    display: none;
+}
+
+.rhap_container {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.rhap_main-controls-button,.rhap_volume-button {
+    color: #fe1f4f;
+}
+
+.rhap_volume-indicator, .rhap_progress-indicator {
+    background: #fe1f4f;
+    box-shadow: rgb(158, 22, 54) 0 0 3px;
+}
+
+.rhap_time {
+    color: #fff;
+    font-size: 14px;
+}
+
+.rhap_progress-filled {
+    background-image: linear-gradient(90deg,#fe1f4f, #9e1636 );
+}
+
+.rhap_volume-bar {
+    background-image: linear-gradient(90deg,#9e1636,#fe1f4f );
+}
+
+.rhap_volume-controls {
+    justify-content: flex-start;
+}
+
+.rhap_progress-section {
+    flex: 7 1 auto;
 }
