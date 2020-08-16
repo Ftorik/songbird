@@ -1,8 +1,8 @@
 import {Col, Row} from "antd";
 import unsolved from "../../images/unknow_pic.jpg";
 import AudioPlayer from "react-h5-audio-player";
-import sounds from "../../utils/sounds";
 import React from "react";
+import gameData from "../../utils/game_data";
 
 const Question = () => {
     return (
@@ -27,7 +27,7 @@ const Question = () => {
                         <div className='player_container'>
                             <div style={{border: '1px solid', backgroundColor: '#fff',}} />
                             <div style={{marginTop: 20,}}>
-                                <AudioPlayer src={sounds.etc.wrong}
+                                <AudioPlayer src={gameData[0][0].audio}
                                              volume={0.33}
                                              style={{flex: 1}}
                                              customAdditionalControls={[]}
