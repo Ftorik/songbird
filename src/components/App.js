@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Row, Col,} from 'antd';
 import 'react-h5-audio-player/lib/styles.css';
 import './App.css';
@@ -9,20 +9,34 @@ import Question from "./Question/Question";
 import Body from "./Body/Body";
 import Results from "./Results/Results";
 
+import gameData from "../utils/game_data";
+import {getRandomSoundFromData} from "../utils/game_helpers";
+
 const App = () => {
-    const [gameStatus, setGameStatus] = useState(true);
+    const [isRunning, setIsRunning] = useState(true);
+    const [score, setScore] = useState(0);
+    const [category, setCategory] = useState(0);
+    const [question, setQuestion] = useState(getRandomSoundFromData(gameData[category]));
+    const [attempt, setAttempt] = useState(0);
+    const [questionReward, setQuestionReward] = useState(5);
+    const [isSolve, setIsSolve] = useState(false);
+
+    useEffect(() => {
+        console.log('App: ',question.name,isSolve)
+    })
+
 
     return (
         <Row className='main_container'>
             <Col className='container'>
-                {gameStatus
+                {isRunning
                     ? <>
-                        <Header />
-                        <Question />
-                        <Button />
+                        <Header score={score} category={category}/>
+                        <Question question={question} isSolve={isSolve} />
+                        <Button isSolve={isSolve}/>
                         <Body />
                     </>
-                    : <Results />
+                    : <Results score={score}/>
                 }
             </Col>
         </Row>

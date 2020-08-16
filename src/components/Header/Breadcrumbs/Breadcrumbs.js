@@ -1,15 +1,20 @@
 import {Col, Row} from "antd";
 import React from "react";
 
-const Breadcrumbs = () => {
+const categories = ['Аниме', 'Сериалы', 'Фильмы', 'Мультики', 'ТВ шоу', 'Игры'];
+
+const Breadcrumbs = ({category}) => {
+    console.log('Breadcrumbs - category:', category)
     return (
         <Row className='breadcrumbs_container'>
-            <Col className='breadcrumbs_item current'>TvShow</Col>
-            <Col className='breadcrumbs_item'>Series</Col>
-            <Col className='breadcrumbs_item'>Movies</Col>
-            <Col className='breadcrumbs_item'>Cartoons</Col>
-            <Col className='breadcrumbs_item'>Anime</Col>
-            <Col className='breadcrumbs_item'>Games</Col>
+            {
+                categories.map((item, index) => {
+                    return (
+                        <Col className={category === index ? 'breadcrumbs_item current' : 'breadcrumbs_item'}>
+                            {item}
+                        </Col>)
+                })
+            }
         </Row>
     )
 }

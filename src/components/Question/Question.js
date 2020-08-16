@@ -1,10 +1,14 @@
 import {Col, Row} from "antd";
 import unsolved from "../../images/unknow_pic.jpg";
 import AudioPlayer from "react-h5-audio-player";
-import React from "react";
-import gameData from "../../utils/game_data";
+import React, {useEffect} from "react";
 
-const Question = () => {
+const Question = ({question,isSolve}) => {
+
+    // console.log('Question - question:', question,'isSolve: ',isSolve)
+    let image = isSolve ? question.image : unsolved
+    let answer = isSolve ? question.name : '**********'
+
     return (
         <Row style={{
             marginBottom: 10,
@@ -18,16 +22,16 @@ const Question = () => {
                 <div className='pic_player' style={{flex: 1,}}>
                     <img alt='test_image'
                          style={{borderRadius: 10}}
-                         src={unsolved}
+                         src={image}
                          width={200} height={155} />
                 </div>
                 <div style={{flex: 4, display: 'flex', color: '#fff',}}>
                     <div style={{flex: 1, display: 'flex', flexDirection: 'column',}}>
-                        <div className='coded_word'>**********</div>
+                        <div className='coded_word'>{answer}</div>
                         <div className='player_container'>
                             <div style={{border: '1px solid', backgroundColor: '#fff',}} />
                             <div style={{marginTop: 20,}}>
-                                <AudioPlayer src={gameData[0][0].audio}
+                                <AudioPlayer src={question.audio}
                                              volume={0.33}
                                              style={{flex: 1}}
                                              customAdditionalControls={[]}
