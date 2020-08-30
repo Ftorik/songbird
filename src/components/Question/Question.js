@@ -31,7 +31,7 @@ const Question = forwardRef(({data},ref) => {
                             <div style={{border: '1px solid', backgroundColor: '#fff',}} />
                             <div style={{marginTop: 20,}}>
                                 <AudioPlayer src={data.question.audio}
-                                             volume={0.2}
+                                             volume={0.4}
                                              style={{flex: 1}}
                                              customAdditionalControls={[]}
                                              showJumpControls={false}

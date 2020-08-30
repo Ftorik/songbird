@@ -29,7 +29,6 @@ const Body = ({variants, data, setData}) => {
 
     return (
         <Row className='row-items' style={{display: 'flex', justifyContent: 'space-between',}}>
-            {/*Body items list - left*/}
             <audio ref={audioRef} />
             <Col className='items items_left'>
                 <div className='container_items_left' ref={checkboxesRef}>
@@ -56,7 +55,6 @@ const Body = ({variants, data, setData}) => {
                     }
                 </div>
             </Col>
-            {/*Body active item list - right*/}
             <Col style={{flex: 2}} className="info_hide" ref={activeOptionRef}>
                 <div className='row-items2' style={{
                     backgroundColor: '#230f1b',
@@ -85,7 +83,7 @@ const Body = ({variants, data, setData}) => {
                                         ref={descriptionAudioRef}
                                         autoPlayAfterSrcChange={false}
                                         style={{flex: 1}}
-                                        volume={0.2}
+                                        volume={0.4}
                                         customAdditionalControls={[]}
                                         showJumpControls={false}
                                     />
