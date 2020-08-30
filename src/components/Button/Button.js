@@ -21,6 +21,7 @@ const Button = ({data, setData}) => {
 
     useEffect(() => {
         setData({...data, attempt:0, question: getRandomSoundFromData(gameData[data.category])})
+    //eslint-disable-next-line
     }, [data.category])
 
     useEffect(() => {

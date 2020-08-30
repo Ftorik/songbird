@@ -107,7 +107,7 @@ const Body = ({variants, data, setData}) => {
                     flex: 1,
                     display: "flex"
                 }}>
-                    <div className="word_info" style={{color: '#fff', height: 252}}>
+                    <div className="word_info info_description">
                         <p style={{marginTop: 10, marginLeft: 10}}>Послушайте плеер. Выберите ответ из списка,
                             соответствующий саундтреку.</p>
                     </div>

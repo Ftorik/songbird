@@ -126,6 +126,10 @@
     flex: 3;
     margin-right:20px;
 }
+.info_description{
+    color: #fff;
+    height: 252px;
+}
 @media screen and (max-width: 1320px) {
     .container{
         width:85%;
@@ -176,6 +180,9 @@
     }
     .container_items_left{
         margin-right:0;
+    }
+    .info_description{
+        height: 42px;
     }
 }
 @media screen and (max-width: 474px) {
