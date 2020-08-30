@@ -128,7 +128,7 @@
 }
 .info_description{
     color: #fff;
-    height: 252px;
+    min-height: 252px;
 }
 @media screen and (max-width: 1320px) {
     .container{
@@ -182,7 +182,7 @@
         margin-right:0;
     }
     .info_description{
-        height: 42px;
+        min-height: 0
     }
 }
 @media screen and (max-width: 474px) {
