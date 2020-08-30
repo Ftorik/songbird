@@ -3,8 +3,7 @@ import logo from "../../images/LOGO.png";
 import React from "react";
 import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
 
-const Header = ({score,category}) => {
-    // console.log('Header - score:',score)
+const Header = ({data}) => {
     return (
         <>
             <Row style={{marginTop: 5}}>
@@ -18,11 +17,11 @@ const Header = ({score,category}) => {
                 {/*Header Score right*/}
                 <Col span={12} style={{display: "flex", justifyContent: "flex-end", alignItems: 'flex-end'}}>
                     <div style={{color: 'white'}}>
-                        Score: {score}
+                        Score: {data.score}
                     </div>
                 </Col>
             </Row>
-            <Breadcrumbs category={category}/>
+            <Breadcrumbs category={data.category}/>
         </>
     )
 }

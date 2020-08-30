@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Row, Col,} from 'antd';
 import 'react-h5-audio-player/lib/styles.css';
 import './App.css';
@@ -10,33 +10,36 @@ import Body from "./Body/Body";
 import Results from "./Results/Results";
 
 import gameData from "../utils/game_data";
-import {getRandomSoundFromData} from "../utils/game_helpers";
+import {stopPlayer} from "../utils/game_helpers";
 
 const App = () => {
-    const [isRunning, setIsRunning] = useState(true);
-    const [score, setScore] = useState(0);
-    const [category, setCategory] = useState(0);
-    const [question, setQuestion] = useState(getRandomSoundFromData(gameData[category]));
-    const [attempt, setAttempt] = useState(0);
-    const [questionReward, setQuestionReward] = useState(5);
-    const [isSolve, setIsSolve] = useState(false);
+    const [data, setData] = useState({
+        isRunning: true,
+        score: 0,
+        category: 0,
+        question: 0,
+        attempt: 0,
+        isSolve: false,
+    })
+    const audioPlayerQuestionRef = useRef(null);
 
     useEffect(() => {
-        console.log('App: ',question.name,isSolve)
-    })
-
+        if (audioPlayerQuestionRef.current) {
+            stopPlayer( audioPlayerQuestionRef.current.audio.current);
+        }
+    },[data.isSolve])
 
     return (
         <Row className='main_container'>
             <Col className='container'>
-                {isRunning
+                {data.isRunning
                     ? <>
-                        <Header score={score} category={category}/>
-                        <Question question={question} isSolve={isSolve} />
-                        <Button isSolve={isSolve}/>
-                        <Body />
+                        <Header data={data} />
+                        <Question data={data} setData={setData} ref={audioPlayerQuestionRef} />
+                        <Button data={data} setData={setData} />
+                        <Body data={data} setData={setData} variants={gameData[data.category]} />
                     </>
-                    : <Results score={score}/>
+                    : <Results data={data} setData={setData} />
                 }
             </Col>
         </Row>
